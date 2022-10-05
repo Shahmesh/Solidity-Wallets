@@ -12,13 +12,13 @@ contract basicWallet {
 
     // Show balance 
     function balanceOf() public view returns(uint) {
-	 return address(this).balance;
+	return address(this).balance;
    }
 
     // Define received balance + Deposit funds
     uint public balanceReceived; 
     function deposit() public payable {
-	 balanceReceived += msg.value;
+	balanceReceived += msg.value;
    } 
 								   
    // Withdraw funds
