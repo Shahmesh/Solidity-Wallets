@@ -26,4 +26,4 @@ contract basicWallet {
        payable(msg.sender).transfer(_amount);
    }
 
-}   											}
+}   											
