@@ -7,8 +7,8 @@ contract basicWallet {
     address payable owner;
 
     constructor() {
-    owner == msg.sender;
-		        }
+    	owner == msg.sender;
+    }
 
     // Show balance 
     function balanceOf() public view returns(uint) {
