@@ -4,7 +4,7 @@ pragma solidity ^0.8;
 
 contract basicWallet {
     // Define owner
-    address payable public owner;
+    address payable owner;
 
     constructor() {
     	owner == payable(msg.sender);
