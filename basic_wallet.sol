@@ -4,10 +4,10 @@ pragma solidity ^0.8;
 
 contract basicWallet {
     // Define owner
-    address payable owner;
+    address payable public owner;
 
     constructor() {
-    	owner == msg.sender;
+    	owner == payable(msg.sender);
     }
 
     // Show balance 
@@ -25,5 +25,7 @@ contract basicWallet {
    function withdrawFunds(uint _amount) external {
        payable(msg.sender).transfer(_amount);
    }
+
+   receive() external payable {}
 
 }   											
