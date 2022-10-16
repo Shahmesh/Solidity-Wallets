@@ -23,6 +23,7 @@ contract basicWallet {
 								   
    // Withdraw funds
    function withdrawFunds(uint _amount) external {
+       require(msg.sender == owner);	
        payable(msg.sender).transfer(_amount);
    }
 
