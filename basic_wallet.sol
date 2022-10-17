@@ -24,6 +24,7 @@ contract basicWallet {
 								   
    // Withdraw funds
    function withdrawFunds(address payable _to, uint _amount) public {
+   	require(msg.sender == owner, "Caller is not owner, aborting");
         require(_amount <= balanceReceived[msg.sender], "Not enough funds, aborting");
             balanceReceived[msg.sender] -= _amount;
             _to.transfer(_amount);
