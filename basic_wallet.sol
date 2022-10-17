@@ -27,6 +27,7 @@ contract basicWallet {
         require(_amount <= balanceReceived[msg.sender], "Not enough funds, aborting");
             balanceReceived[msg.sender] -= _amount;
             _to.transfer(_amount);
+	require(owner == payable(msg.sender);
     }
 
    receive() external payable {}
