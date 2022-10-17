@@ -9,23 +9,26 @@ contract basicWallet {
     constructor() {
     	owner == payable(msg.sender);
     }
-
+    
+    mapping(address => uint) public balanceReceived;
+    
     // Show balance 
     function balanceOf() public view returns(uint) {
 	return address(this).balance;
    }
 
     // Define received balance + Deposit funds
-    uint public balanceReceived; 
     function deposit() public payable {
-	balanceReceived += msg.value;
-   } 
+        balanceReceived[msg.sender] += msg.value; 
+    }
 								   
    // Withdraw funds
-   function withdrawFunds(uint _amount) external {
-       require(msg.sender == owner);	
-       payable(msg.sender).transfer(_amount);
-   }
+   function withdrawFunds(address payable _to, uint _amount) public {
+        if(_amount <= balanceReceived[msg.sender]) {
+            balanceReceived[msg.sender] -= _amount;
+            _to.transfer(_amount);
+        }
+    }
 
    receive() external payable {}
 
