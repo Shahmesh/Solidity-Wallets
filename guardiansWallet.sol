@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8;
 
-contract smartWallet {
+contract guardiansWallet {
 
     address payable public owner;
 
